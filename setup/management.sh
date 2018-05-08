@@ -11,12 +11,12 @@ echo "Installing Mail-in-a-Box system management daemon..."
 # package manager is too out-of-date -- it doesn't support the newer
 # S3 api used in some regions, which breaks backups to those regions.
 # See #627, #653.
-apt_install duplicity python-pip
+apt_install duplicity python-pip python-setuptools
 hide_output pip2 install --upgrade boto
 
 # These are required to build/install the cryptography Python package
 # used by our management daemon.
-apt_install python-virtualenv build-essential libssl-dev libffi-dev python3-dev
+apt_install virtualenv python-virtualenv build-essential libssl-dev libffi-dev python3-dev
 
 # Create a virtualenv for the installation of Python 3 packages
 # used by the management daemon.
